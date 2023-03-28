@@ -10,6 +10,11 @@
 ---
 # Configurar banco
 
+- criar um banco no seu SGBD ( Sistema Gerenciador de Banco de Dados )
+    - name: api_resfull
+    - user: root
+    - password: 123456
+
 - entrar no arquivo .env e configurar caso deseje trocar alguma das informações do banco
     - DB_DATABASE=api_resfull
     - DB_USERNAME=root
