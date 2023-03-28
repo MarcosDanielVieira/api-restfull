@@ -15,13 +15,13 @@
     - DB_USERNAME=root
     - DB_PASSWORD=123456
 
-- rodar comando da migrate no terminal onde está o projeto
-    - php artisan migrate:
+- rodar comando da migrate no terminal onde está o projeto ( CRIA O BANCO SOZINHO )
+    - php artisan migrate:refresh
     
 ---
 # Criando dados fictícios
 
-    -  php artisan db:seed --class=DatabaseSeeder <!-- (comando para executar um semeador dos dados)-->
+    -  php artisan db:seed --class=DatabaseSeeder
 
 ---
 # Rodar projeto
