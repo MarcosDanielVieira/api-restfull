@@ -4,7 +4,8 @@
 
 # Clonar projeto
 
--  git clone https://github.com/MarcosDanielVieira/api-restfull.git
+-  git clone https://github.com/MarcosDanielVieira/api-restfull.
+
 -  cd api-restfull
 
 ---
@@ -21,6 +22,7 @@
     - DB_PASSWORD=123456
 
 - rodar comando da migrate no terminal onde está o projeto ( CRIA O BANCO SOZINHO )
+
     -  php artisan migrate:refresh
     
 ---
