@@ -4,9 +4,9 @@
 
 # Clonar projeto
 
--  git clone https://github.com/MarcosDanielVieira/api-restfull.
+    -  git clone https://github.com/MarcosDanielVieira/api-restfull.
 
--  cd api-restfull
+    -  cd api-restfull
 
 ---
 # Configurar banco
