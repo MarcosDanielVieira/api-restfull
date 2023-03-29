@@ -28,14 +28,11 @@
 
      composer update
 
-     php artisan serve
-
      php artisan migrate:refresh
-    
----
-# Criando dados fictícios
 
      php artisan db:seed --class=DatabaseSeeder
+
+     php artisan serve
 
 ---
 # Testes Swagger
