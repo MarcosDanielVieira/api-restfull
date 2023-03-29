@@ -96,39 +96,28 @@
                 ],
                 "summary": "Fazer o usuário deslogar",
                 "operationId": "28d48c13fca984400ac8de99f54ee13a",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "id": {
-                                            "type": "number",
-                                            "example": 1
-                                        },
-                                        "nombres": {
-                                            "type": "string",
-                                            "example": "Aderson Felix"
-                                        },
-                                        "apellidos": {
-                                            "type": "string",
-                                            "example": "Jara Lazaro"
-                                        },
-                                        "created_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T00:09:16.000000Z"
-                                        },
-                                        "updated_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T12:33:45.000000Z"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
+                "requestBody": {
+                    "description": "Preencher com token fornecido no login",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "token"
+                                ],
+                                "properties": {
+                                    "token": {
+                                        "type": "string",
+                                        "format": "token",
+                                        "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjgwMDU0MjgyLCJleHAiOjE2ODAwNTc4ODIsIm5iZiI6MTY4MDA1NDI4MiwianRpIjoiY0ZVaFpyamdiWWk0ZWhwdyIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.p9i2mhNNBUPkvbunTO83xUKzrcVBEtCt3jsMZvglyzY"
+                                    }
+                                },
+                                "type": "object"
                             }
                         }
-                    },
+                    }
+                },
+                "responses": {
                     "404": {
                         "description": "NOT FOUND",
                         "content": {
@@ -137,7 +126,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "No query results for model [App\\\\Models\\\\Cliente] #id"
+                                            "example": "Não foi possível verificar sua conta com o token fornecido."
                                         }
                                     },
                                     "type": "object"
@@ -155,6 +144,27 @@
                 ],
                 "summary": "Função para listar todos usuários",
                 "operationId": "7208c29037df2b8bb02499ba39ed8a78",
+                "requestBody": {
+                    "description": "Preencher com token fornecido no login",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "token"
+                                ],
+                                "properties": {
+                                    "token": {
+                                        "type": "string",
+                                        "format": "token",
+                                        "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjgwMDU0MjgyLCJleHAiOjE2ODAwNTc4ODIsIm5iZiI6MTY4MDA1NDI4MiwianRpIjoiY0ZVaFpyamdiWWk0ZWhwdyIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.p9i2mhNNBUPkvbunTO83xUKzrcVBEtCt3jsMZvglyzY"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -224,8 +234,9 @@
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "number"
-                        }
+                            "type": "integer"
+                        },
+                        "example": "1"
                     }
                 ],
                 "responses": {
@@ -281,7 +292,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
             }
         }
     }

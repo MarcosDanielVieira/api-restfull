@@ -74,15 +74,12 @@ class AuthController extends Controller
      * @OA\Post (
      *     path="/logout",
      *     tags={"Auth"},
-     *     @OA\Response(
-     *         response=200,
-     *         description="OK",
+     *      @OA\RequestBody(
+     *         required=true,
+     *         description="Preencher com token fornecido no login",
      *         @OA\JsonContent(
-     *              @OA\Property(property="id", type="number", example=1),
-     *              @OA\Property(property="nombres", type="string", example="Aderson Felix"),
-     *              @OA\Property(property="apellidos", type="string", example="Jara Lazaro"),
-     *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
-     *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
+     *             required={"token"},
+     *             @OA\Property(property="token", type="string", format="token", example="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjgwMDU0MjgyLCJleHAiOjE2ODAwNTc4ODIsIm5iZiI6MTY4MDA1NDI4MiwianRpIjoiY0ZVaFpyamdiWWk0ZWhwdyIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.p9i2mhNNBUPkvbunTO83xUKzrcVBEtCt3jsMZvglyzY")
      *         )
      *     ),
      *      @OA\Response(
