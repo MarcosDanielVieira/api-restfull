@@ -6,13 +6,13 @@
 
     Para rodar um projeto do GitHub feito com Laravel, você precisará ter instalado em seu computador as seguintes tecnologias:
 
-    PHP: Laravel é um framework PHP, portanto, você precisará ter uma versão do PHP instalada em seu computador. A versão mínima exigida pelo Laravel é PHP 7.4.0 ou superior.
+     - PHP: Laravel é um framework PHP, portanto, você precisará ter uma versão do PHP instalada em seu computador. A versão mínima exigida pelo Laravel é PHP 7.4.0 ou superior.
 
-    Banco de dados: Laravel suporta vários tipos de bancos de dados, incluindo MySQL, PostgreSQL, SQLite e SQL Server. Certifique-se de ter o banco de dados instalado e configurado corretamente.
+     - Banco de dados: Laravel suporta vários tipos de bancos de dados, incluindo MySQL, PostgreSQL, SQLite e SQL Server. Certifique-se de ter o banco de dados instalado e configurado corretamente.
 
-    Composer: Composer é um gerenciador de dependências para o PHP e é usado pelo Laravel para instalar e gerenciar pacotes de terceiros. Certifique-se de ter o Composer instalado em seu computador.
+     - Composer: Composer é um gerenciador de dependências para o PHP e é usado pelo Laravel para instalar e gerenciar pacotes de terceiros. Certifique-se de ter o Composer instalado em seu computador.
 
-    Servidor Web: O Laravel é executado em um servidor web como Apache ou Nginx. Você pode instalar um desses servidores web em seu computador ou usar um servidor de desenvolvimento fornecido pelo próprio Laravel.
+     - Servidor Web: O Laravel é executado em um servidor web como Apache ou Nginx. Você pode instalar um desses servidores web em seu computador ou usar um servidor de desenvolvimento fornecido pelo próprio Laravel.
 
     Uma vez que você tenha essas tecnologias instaladas, siga estas etapas para rodar um projeto Laravel do GitHub:
 
