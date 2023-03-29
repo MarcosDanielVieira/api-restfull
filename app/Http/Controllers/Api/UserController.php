@@ -111,9 +111,9 @@ class UserController extends Controller
             "currentPage"       => $users->currentPage(),
             "lastPage"          => $users->lastPage(),
             "total"             => $users->total(),
-            "items"             => $users->items(),
             "nextPage"          => $users->nextPageUrl(),
-            "previousPage"      => $users->previousPageUrl()
+            "previousPage"      => $users->previousPageUrl(),
+            "items"             => $users->items()
         ], 200);
     }
 
