@@ -19,12 +19,25 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-
     /**
      * Função para listar todos usuários
+     * @OAS\SecurityScheme(
+     *      securityScheme="API Key Auth",
+     *      type="apiKey",
+     *      in="header",
+     *      name="Authorization",
+     * ),
      * @OA\Get (
      *     path="/users",
      *     tags={"Users"},
+     *      @OA\RequestBody(
+     *         required=true,
+     *         description="Preencher com token fornecido no login",
+     *         @OA\JsonContent(
+     *             required={"token"},
+     *             @OA\Property(property="token", type="string", format="token", example="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjgwMDU0MjgyLCJleHAiOjE2ODAwNTc4ODIsIm5iZiI6MTY4MDA1NDI4MiwianRpIjoiY0ZVaFpyamdiWWk0ZWhwdyIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.p9i2mhNNBUPkvbunTO83xUKzrcVBEtCt3jsMZvglyzY")
+     *         )
+     *     ),
      *     @OA\Response(
      *         response=200,
      *         description="Success",
@@ -113,7 +126,8 @@ class UserController extends Controller
      *         in="path",
      *         name="id",
      *         required=true,
-     *         @OA\Schema(type="number")
+     *         example="1",
+     *         @OA\Schema(type="integer")
      *     ),
      *     @OA\Response(
      *         response=200,
@@ -133,12 +147,17 @@ class UserController extends Controller
      *          @OA\JsonContent(
      *              @OA\Property(property="message", type="string", example="Item de busca não encontrado."),
      *          )
-     *      )
+     *      ),
+     *      security={{ "api_key":{} }}
      * )
      */
-    public function show(string $id)
+    public function show(Request $request, $id)
     {
         try {
+
+            $request->validate([
+                'id' => 'required|integer',
+            ]);
 
             if (!$user = User::find($id)) {
                 return response()->json([
