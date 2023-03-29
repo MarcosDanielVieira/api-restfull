@@ -24,10 +24,11 @@
 ---
 # Rodar projeto
 
-     composer update
-     php artisan serve
-
 - rodar comando da migrate no terminal onde está o projeto ( CRIA O BANCO SOZINHO )
+
+     composer update
+
+     php artisan serve
 
      php artisan migrate:refresh
     
