@@ -65,6 +65,12 @@ class AuthController extends Controller
 
     /**
      * Fazer o usuário deslogar
+     * @OAS\SecurityScheme(
+     *      securityScheme="API Key Auth",
+     *      type="apiKey",
+     *      in="header",
+     *      name="Authorization",
+     * ),
      * @OA\Post (
      *     path="/logout",
      *     tags={"Auth"},
@@ -83,7 +89,7 @@ class AuthController extends Controller
      *          response=404,
      *          description="NOT FOUND",
      *          @OA\JsonContent(
-     *              @OA\Property(property="message", type="string", example="No query results for model [App\\Models\\Cliente] #id"),
+     *              @OA\Property(property="message", type="string", example="Não foi possível verificar sua conta com o token fornecido."),
      *          )
      *      )
      * )
