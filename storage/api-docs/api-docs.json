@@ -73,6 +73,79 @@
                     }
                 }
             }
+        },
+        "/users/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Mostrar as informações de um usuário",
+                "operationId": "6946bbab7898f59a09e3c8e529a38907",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Marcos Daniel"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "marcosdaniel.developer@hotmail.com"
+                                        },
+                                        "email_verified_at": {
+                                            "type": "timestamp",
+                                            "example": "2023-03-28T22:49:46.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "timestamp",
+                                            "example": "2023-03-28T22:49:46.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "timestamp",
+                                            "example": "2023-03-28T22:49:46.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Item de busca não encontrado."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

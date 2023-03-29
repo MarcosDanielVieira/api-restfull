@@ -35,6 +35,7 @@ abstract class Constants
   const STATUS_INACTIVE       = 1;
   const STATUS_SUCCESS        = "Success";
   const STATUS_ERROR          = "Error";
+  const STATUS_NOT_FOUND      = "Not found";
 
   const PAGE_NUMBER           = 26;
 

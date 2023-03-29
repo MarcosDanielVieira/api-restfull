@@ -105,34 +105,57 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * Mostrar as informações de um usuário
+     * @OA\Get (
+     *     path="/users/{id}",
+     *     tags={"Users"},
+     *     @OA\Parameter(
+     *         in="path",
+     *         name="id",
+     *         required=true,
+     *         @OA\Schema(type="number")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success",
+     *         @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="name", type="string", example="Marcos Daniel"),
+     *              @OA\Property(property="email", type="string", example="marcosdaniel.developer@hotmail.com"),
+     *              @OA\Property(property="email_verified_at", type="timestamp", example="2023-03-28T22:49:46.000000Z"),
+     *              @OA\Property(property="created_at", type="timestamp", example="2023-03-28T22:49:46.000000Z"),
+     *              @OA\Property(property="updated_at", type="timestamp", example="2023-03-28T22:49:46.000000Z")
+     *         )
+     *     ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Not found",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="message", type="string", example="Item de busca não encontrado."),
+     *          )
+     *      )
+     * )
      */
     public function show(string $id)
     {
-        //
-    }
+        try {
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+            if (!$user = User::find($id)) {
+                return response()->json([
+                    "status"    => Constants::STATUS_NOT_FOUND,
+                    "menssage"  => Constants::ERROR_SEARCH
+                ], 404);
+            }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            return response()->json([
+                "status"    => Constants::STATUS_SUCCESS,
+                "items"     => $user
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                "status"    => Constants::STATUS_ERROR,
+                "menssage"  => $th
+            ], 500);
+        }
     }
 }
