@@ -31,6 +31,7 @@ abstract class Constants
   const ERROR_SEARCH          = "Item de busca não encontrado.";
   const ERROR_ACCESS          = "Infelizmente você não possui acesso a essa função.";
   const ERORR_JSON            = "Existe informação faltando no json.";
+  const ERORR_TOKEN_EXPIRED   = "O token expirou.";
 
   const STATUS_ACTIVE         = 0;
   const STATUS_INACTIVE       = 1;
