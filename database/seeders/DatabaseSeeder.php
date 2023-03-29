@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'name'              => 'Libery',
             'email'             => 'rh@liberfly.com.br',
             'email_verified_at' => now(),
-            'password'          => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password'          => '$2y$10$w6C12pnK2hZePSLloae.3uwKgJk94czV.ESmXRBLayd/J5i.100PK', // 123456789
             'remember_token'    => Str::random(10),
         ]);
     }

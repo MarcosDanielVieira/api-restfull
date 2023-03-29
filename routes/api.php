@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['apijwt']], function () {
+  Route::post('/logout', [AuthController::class, 'logout'])->name("user.logout");
   Route::get('/users', [UserController::class, 'index'])->name('users.list');
   Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
 });
 
 Route::post('/login', [AuthController::class, 'login'])->name("user.login");
-Route::post('/logout', [AuthController::class, 'logout'])->name("user.logout");
