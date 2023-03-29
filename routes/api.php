@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\{
+  AuthController,
   UserController
 };
 use Illuminate\Http\Request;
@@ -19,3 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/users', [UserController::class, 'index'])->name('users.list');
 Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
+
+Route::post('/login', [AuthController::class, 'login'])->name("user.login");
+Route::post('/logout', 'AuthController@logout');
