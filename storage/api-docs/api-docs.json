@@ -1,0 +1,78 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API RESTful com PHP e Laravel",
+        "description": "O objetivo deste desenvolvimento de API RESTful com PHP e Laravel que é fornecer e receber informações de um banco de dados MySQL.",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/api"
+        }
+    ],
+    "paths": {
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Função para listar todos usuários",
+                "operationId": "7208c29037df2b8bb02499ba39ed8a78",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Marcos Daniel"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "marcosdaniel.developer@hotmail.com"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "timestamp",
+                                                        "example": "2023-03-28T22:49:46.000000Z"
+                                                    },
+                                                    "email_verified_at": {
+                                                        "type": "timestamp",
+                                                        "example": "2023-03-28T22:49:46.000000Z"
+                                                    },
+                                                    "password": {
+                                                        "type": "string",
+                                                        "example": "$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi"
+                                                    },
+                                                    "remember_token": {
+                                                        "type": "string",
+                                                        "example": "8WgJPwXDSz"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "timestamp",
+                                                        "example": "2023-03-28T22:49:46.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

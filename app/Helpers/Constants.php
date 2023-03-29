@@ -43,4 +43,6 @@ abstract class Constants
   const HR_SEGUNDO            = "H:i";
   const DATE_BRASILEIRA_HR    = "d/m/Y H:i:s";
   const DATE_TIMESTAMP        = "Y-m-d H:i:s";
+
+  const L5_SWAGGER_OPEN_API_SPEC_VERSION =  1.0;
 }
