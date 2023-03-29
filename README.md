@@ -4,7 +4,8 @@
 
 # Clonar projeto
 
-     git clone https://github.com/MarcosDanielVieira/api-restfull.
+     git clone https://github.com/MarcosDanielVieira/api-restfull
+     
      cd api-restfull
 
 ---
@@ -20,6 +21,12 @@
     - DB_USERNAME=root
     - DB_PASSWORD=123456
 
+---
+# Rodar projeto
+
+     composer update
+     php artisan serve
+
 - rodar comando da migrate no terminal onde está o projeto ( CRIA O BANCO SOZINHO )
 
      php artisan migrate:refresh
@@ -28,12 +35,6 @@
 # Criando dados fictícios
 
      php artisan db:seed --class=DatabaseSeeder
-
----
-# Rodar projeto
-
-     composer update
-     php artisan serve
 
 ---
 # Testes Swagger
