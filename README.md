@@ -4,9 +4,8 @@
 
 # Clonar projeto
 
-    -  git clone https://github.com/MarcosDanielVieira/api-restfull.
-
-    -  cd api-restfull
+    - git clone https://github.com/MarcosDanielVieira/api-restfull.
+    - cd api-restfull
 
 ---
 # Configurar banco
@@ -23,19 +22,19 @@
 
 - rodar comando da migrate no terminal onde está o projeto ( CRIA O BANCO SOZINHO )
 
-    -  php artisan migrate:refresh
+    - php artisan migrate:refresh
     
 ---
 # Criando dados fictícios
 
-    -  php artisan db:seed --class=DatabaseSeeder
+    - php artisan db:seed --class=DatabaseSeeder
 
 ---
 # Rodar projeto
 
-- composer update
-- php artisan serve
+    - composer update
+    - php artisan serve
 
 ---
-# Testes via postman
-    - {{url_api}} = http://127.0.0.1:8000/api
+# Testes Swagger
+    - http://127.0.0.1:8000/api/documentation
