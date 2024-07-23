@@ -47,20 +47,21 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         try {
-            $credentials    = $request->only(['email', 'password']);
+            $credentials = $request->only(['email', 'password']);
 
-            $token          = JWTAuth::attempt($credentials);
+            $token = JWTAuth::attempt($credentials);
 
             // auth está configurado dentro config\auth.php
             if (!$token) {
                 return response()->json([
                     'status'    => Constants::STATUS_ERROR,
-                    'message'  => Constants::ERROR_LOGIN,
+                    'message'   => Constants::ERROR_LOGIN,
                 ], 401);
             }
 
             return response()->json([
-                "message"      => Constants::STATUS_SUCCESS,
+                'message'       => Constants::SUCCESS_LIST,
+                'status'        => Constants::STATUS_SUCCESS,
                 'access_token'  => $token,
                 'token_type'    => 'bearer',
                 'created_at'    => date('d/m/Y H:i:s'),
@@ -68,11 +69,12 @@ class AuthController extends Controller
             ]);
         } catch (\Throwable $th) {
             return response()->json([
-                "status"    => Constants::STATUS_ERROR,
-                "message"   => $th
+                'status'    => Constants::STATUS_ERROR,
+                'message'   => 'Ocorreu um erro ao tentar fazer login. Por favor, tente novamente.',
             ], 500);
         }
     }
+
 
     /**
      * Fazer o usuário deslogar

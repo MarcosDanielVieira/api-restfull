@@ -19,6 +19,7 @@ abstract class Constants
   const SUCCESS_UPLOAD        = "Foi efetuado upload corretamente.";
   const SUCCESS_ACTIVE        = "Ativação realizada com sucesso.";
   const SUCCESS_INACTIVE      = "Desativação realizada com sucesso.";
+  const SUCCESS_LIST          = "Registros listados com sucesso.";
 
   const ERROR_LOGIN           = "E-mail ou senha não conferem.";
   const ERROR_TOKEN           = "Não foi possível verificar sua conta com o token fornecido.";
