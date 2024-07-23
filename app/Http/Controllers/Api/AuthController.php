@@ -47,12 +47,12 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         try {
-            $credentials = $request->only(['email', 'password']);
+            $credentials    = $request->only(['email', 'password']);
 
-            $token = JWTAuth::attempt($credentials);
+            $token          = JWTAuth::attempt($credentials);
 
             // auth está configurado dentro config\auth.php
-            if (!$token) {
+            if (!$token     = auth('api')->attempt($credentials)) {
                 return response()->json([
                     'status'    => Constants::STATUS_ERROR,
                     'message'   => Constants::ERROR_LOGIN,
@@ -74,7 +74,6 @@ class AuthController extends Controller
             ], 500);
         }
     }
-
 
     /**
      * Fazer o usuário deslogar
@@ -113,7 +112,7 @@ class AuthController extends Controller
      */
     public function logout()
     {
-        auth()->logout();
+        auth('api')->logout();
 
         return response()->json(['message' => Constants::SUCCESS_LOGOUT]);
     }
