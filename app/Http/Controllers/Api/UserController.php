@@ -20,7 +20,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     /**
-     * Função para listar todos usuários
+     * Função para listar todos os usuários
      * 
      * @OA\SecurityScheme(
      *     securityScheme="API Key Auth",
@@ -42,46 +42,12 @@ class UserController extends Controller
      *                 property="items",
      *                 @OA\Items(
      *                     type="object",
-     *                     @OA\Property(
-     *                         property="id",
-     *                         type="number",
-     *                         example="1"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="name",
-     *                         type="string",
-     *                         example="Marcos Daniel"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="email",
-     *                         type="string",
-     *                         example="marcosdaniel.developer@hotmail.com"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="created_at",
-     *                         type="timestamp",
-     *                         example="2023-03-28T22:49:46.000000Z"
-     *                     ),    
-     *                     @OA\Property(
-     *                         property="email_verified_at",
-     *                         type="timestamp",
-     *                         example="2023-03-28T22:49:46.000000Z"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="password",
-     *                         type="string",
-     *                         example="$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="remember_token",
-     *                         type="string",
-     *                         example="8WgJPwXDSz"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="updated_at",
-     *                         type="timestamp",
-     *                         example="2023-03-28T22:49:46.000000Z"
-     *                     )
+     *                     @OA\Property(property="id", type="number", example="1"),
+     *                     @OA\Property(property="name", type="string", example="Marcos Daniel"),
+     *                     @OA\Property(property="email", type="string", example="marcosdaniel.developer@hotmail.com"),
+     *                     @OA\Property(property="created_at", type="string", format="date-time", example="2023-03-28T22:49:46.000000Z"),
+     *                     @OA\Property(property="email_verified_at", type="string", format="date-time", example="2023-03-28T22:49:46.000000Z"),
+     *                     @OA\Property(property="updated_at", type="string", format="date-time", example="2023-03-28T22:49:46.000000Z")
      *                 )
      *             )
      *         )
@@ -90,32 +56,16 @@ class UserController extends Controller
      *         response=404,
      *         description="No users found",
      *         @OA\JsonContent(
-     *             @OA\Property(
-     *                 property="status",
-     *                 type="string",
-     *                 example="error"
-     *             ),
-     *             @OA\Property(
-     *                 property="message",
-     *                 type="string",
-     *                 example="No users found"
-     *             )
+     *             @OA\Property(property="status", type="string", example="error"),
+     *             @OA\Property(property="message", type="string", example="No users found")
      *         )
      *     ),
      *     @OA\Response(
      *         response=500,
      *         description="Server error",
      *         @OA\JsonContent(
-     *             @OA\Property(
-     *                 property="status",
-     *                 type="string",
-     *                 example="error"
-     *             ),
-     *             @OA\Property(
-     *                 property="message",
-     *                 type="string",
-     *                 example="Internal server error"
-     *             )
+     *             @OA\Property(property="status", type="string", example="error"),
+     *             @OA\Property(property="message", type="string", example="Internal server error")
      *         )
      *     )
      * )
@@ -123,13 +73,12 @@ class UserController extends Controller
     public function index()
     {
         try {
-            $users              = User::orderBy("name", 'ASC')->paginate(Constants::PAGE_NUMBER);
+            $users = User::orderBy("name", 'ASC')->paginate(Constants::PAGE_NUMBER);
 
-            if ($users->items() == []) {
-
+            if ($users->isEmpty()) {
                 return response()->json([
                     "status"    => Constants::STATUS_ERROR,
-                    "message"   => Constants::ERROR_SEARCH,
+                    "message"   => "No users found",
                     "page_1"    => $users->url(1),
                 ], 404);
             }
@@ -146,10 +95,11 @@ class UserController extends Controller
         } catch (\Throwable $th) {
             return response()->json([
                 "status"    => Constants::STATUS_ERROR,
-                "message"   => $th
+                "message"   => "Internal server error",
             ], 500);
         }
     }
+
 
     /**
      * Mostrar as informações de um usuário

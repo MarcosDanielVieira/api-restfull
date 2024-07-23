@@ -185,23 +185,18 @@
                                                         "example": "marcosdaniel.developer@hotmail.com"
                                                     },
                                                     "created_at": {
-                                                        "type": "timestamp",
+                                                        "type": "string",
+                                                        "format": "date-time",
                                                         "example": "2023-03-28T22:49:46.000000Z"
                                                     },
                                                     "email_verified_at": {
-                                                        "type": "timestamp",
+                                                        "type": "string",
+                                                        "format": "date-time",
                                                         "example": "2023-03-28T22:49:46.000000Z"
                                                     },
-                                                    "password": {
-                                                        "type": "string",
-                                                        "example": "$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi"
-                                                    },
-                                                    "remember_token": {
-                                                        "type": "string",
-                                                        "example": "8WgJPwXDSz"
-                                                    },
                                                     "updated_at": {
-                                                        "type": "timestamp",
+                                                        "type": "string",
+                                                        "format": "date-time",
                                                         "example": "2023-03-28T22:49:46.000000Z"
                                                     }
                                                 },
