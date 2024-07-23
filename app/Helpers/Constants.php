@@ -9,7 +9,7 @@ abstract class Constants
 {
 
   const SUCCESS_LOGOUT        = "Que pena que já vai.";
-  const SUCCESS_LOGIN         = "Seja bem vindo ao sistema.";
+  const SUCCESS_LOGIN         = "Seja bem vindo a API de usuários.";
   const SUCCESS_EMAIL         = "Seu e-mail foi confirmado!";
   const SUCCESS_ALTER_EMAIL   = "E-mail alterado com sucesso.";
   const SUCCESS_ALTER         = "Atualização realizada com sucesso.";

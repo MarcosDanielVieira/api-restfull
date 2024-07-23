@@ -60,7 +60,7 @@ class AuthController extends Controller
             }
 
             return response()->json([
-                'message'       => Constants::SUCCESS_LIST,
+                'message'       => Constants::SUCCESS_LOGIN,
                 'status'        => Constants::STATUS_SUCCESS,
                 'access_token'  => $token,
                 'token_type'    => 'bearer',
