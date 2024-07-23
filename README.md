@@ -6,11 +6,11 @@
 
     Para rodar um projeto do GitHub feito com Laravel, você precisará ter instalado em seu computador as seguintes tecnologias:
 
-     - PHP: Laravel é um framework PHP, portanto, você precisará ter uma versão do PHP instalada em seu computador. A versão mínima exigida pelo Laravel é PHP 8.1.0 ou superior.
+     - PHP: A versão mínima exigida pelo Laravel é PHP 8.1.0 ou superior.
 
-     - Banco de dados: Laravel suporta vários tipos de bancos de dados, incluindo MySQL, PostgreSQL, SQLite e SQL Server. Certifique-se de ter o banco de dados instalado e configurado corretamente.
+     - Banco de dados: Certifique-se de ter o banco de dados instalado e configurado corretamente.
 
-     - Composer: Composer é um gerenciador de dependências para o PHP e é usado pelo Laravel para instalar e gerenciar pacotes de terceiros. Certifique-se de ter o Composer instalado em seu computador.
+     - Composer: Certifique-se de ter o Composer instalado em seu computador.
 
      - Servidor Web: O Laravel é executado em um servidor web como Apache ou Nginx. Você pode instalar um desses servidores web em seu computador ou usar um servidor de desenvolvimento fornecido pelo próprio Laravel.
 
@@ -40,28 +40,21 @@
 
 - rodar comando da migrate no terminal onde está o projeto ( CRIA O BANCO SOZINHO )
 
-     composer update
+    composer update
 
-     php artisan migrate:refresh
+    php artisan migrate:refresh
 
-     php artisan db:seed --class=DatabaseSeeder
+    php artisan db:seed --class=DatabaseSeeder
 
-     php artisan serve
+    php artisan serve
+
+    php artisan jwt:secret
 
 ---
 # Documentação do swagger
      http://127.0.0.1:8000/api/documentation
 
-# Testes da funcionaliade 
+## Endpoints
 
-    - Baixar a colletion e importar no postman online ou local
-        - https://raw.githubusercontent.com/MarcosDanielVieira/api-restfull/main/storage/api-docs/api-docs.json
-
-    - Documentação para importação no postman
-        - https://learning.postman.com/docs/getting-started/importing-and-exporting-data/
-    
-    - Link para acessar online o postman
-        - https://identity.getpostman.com/login
-
-    - Baixar o postman
-        - https://www.postman.com/downloads/
+- Listar todos os usuários: `GET /api/users`
+- Obter um usuário específico: `GET /api/users/{id}`
