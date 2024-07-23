@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
  * @OA\Info(
  *  title="API RESTful com PHP e Laravel", 
  *  version="1.0",
- *  updated_at="2024-07-23 19:55"
  *  description="O objetivo deste desenvolvimento de API RESTful com PHP e Laravel que é fornecer e receber informações de um banco de dados MySQL."
  * )
  *
