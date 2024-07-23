@@ -53,11 +53,14 @@ class AuthController extends Controller
 
             // auth está configurado dentro config\auth.php
             if (!$token) {
-                return response()->json(['menssage' => Constants::ERROR_LOGIN], 401);
+                return response()->json([
+                    'status'    => Constants::STATUS_ERROR,
+                    'message'  => Constants::ERROR_LOGIN,
+                ], 401);
             }
 
             return response()->json([
-                "menssage"      => Constants::STATUS_SUCCESS,
+                "message"      => Constants::STATUS_SUCCESS,
                 'access_token'  => $token,
                 'token_type'    => 'bearer',
                 'created_at'    => date('d/m/Y H:i:s'),

@@ -24,17 +24,17 @@ class apiProtectedRoute extends BaseMiddleware
             if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException) {
                 return response()->json([
                     "status"    => Constants::STATUS_ERROR,
-                    'menssage'  => Constants::ERROR_TOKEN
+                    'message'  => Constants::ERROR_TOKEN
                 ], 401);
             } else if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException) {
                 return response()->json([
                     "status"    => Constants::STATUS_ERROR,
-                    'menssage'  => Constants::ERORR_TOKEN_EXPIRED
+                    'message'  => Constants::ERORR_TOKEN_EXPIRED
                 ], 400);
             } else {
                 return response()->json([
                     "status"    => Constants::STATUS_ERROR,
-                    'menssage'  => Constants::ERROR_TOKEN
+                    'message'  => Constants::ERROR_TOKEN
                 ], 401);
             }
         }
