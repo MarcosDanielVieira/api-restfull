@@ -22,11 +22,20 @@ class apiProtectedRoute extends BaseMiddleware
             $users = JWTAuth::parseToken()->authenticate();
         } catch (\Exception $e) {
             if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException) {
-                return response()->json(['menssage' => Constants::ERROR_TOKEN]);
+                return response()->json([
+                    "status"    => Constants::STATUS_ERROR,
+                    'menssage'  => Constants::ERROR_TOKEN
+                ], 401);
             } else if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException) {
-                return response()->json(['menssage' => Constants::ERORR_TOKEN_EXPIRED]);
+                return response()->json([
+                    "status"    => Constants::STATUS_ERROR,
+                    'menssage'  => Constants::ERORR_TOKEN_EXPIRED
+                ], 400);
             } else {
-                return response()->json(['menssage' => Constants::ERROR_TOKEN]);
+                return response()->json([
+                    "status"    => Constants::STATUS_ERROR,
+                    'menssage'  => Constants::ERROR_TOKEN
+                ], 401);
             }
         }
         return $next($request);

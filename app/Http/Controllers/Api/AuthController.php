@@ -46,21 +46,29 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        $credentials    = $request->only(['email', 'password']);
+        try {
+            $credentials    = $request->only(['email', 'password']);
 
-        $token          = JWTAuth::attempt($credentials);
+            $token          = JWTAuth::attempt($credentials);
 
-        // auth está configurado dentro config\auth.php
-        if (!$token) {
-            return response()->json(['menssage' => Constants::ERROR_LOGIN], 401);
+            // auth está configurado dentro config\auth.php
+            if (!$token) {
+                return response()->json(['menssage' => Constants::ERROR_LOGIN], 401);
+            }
+
+            return response()->json([
+                "menssage"      => Constants::STATUS_SUCCESS,
+                'access_token'  => $token,
+                'token_type'    => 'bearer',
+                'created_at'    => date('d/m/Y H:i:s'),
+                'expires_in'    => JWTAuth::factory()->getTTL() * 60
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                "status"    => Constants::STATUS_ERROR,
+                "message"   => $th
+            ], 500);
         }
-
-        return response()->json([
-            "menssage"      => Constants::STATUS_SUCCESS,
-            'access_token'  => $token,
-            'token_type'    => 'bearer',
-            'expires_in'    => JWTAuth::factory()->getTTL() * 60
-        ]);
     }
 
     /**
@@ -85,6 +93,13 @@ class AuthController extends Controller
      *      @OA\Response(
      *          response=404,
      *          description="NOT FOUND",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="message", type="string", example="Não foi possível verificar sua conta com o token fornecido."),
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthorized",
      *          @OA\JsonContent(
      *              @OA\Property(property="message", type="string", example="Não foi possível verificar sua conta com o token fornecido."),
      *          )
