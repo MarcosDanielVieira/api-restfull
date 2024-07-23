@@ -100,7 +100,6 @@ class UserController extends Controller
         }
     }
 
-
     /**
      * Mostrar as informações de um usuário
      * @OA\Get (
@@ -138,26 +137,22 @@ class UserController extends Controller
     public function show(Request $request, $id)
     {
         try {
-
-            $request->validate([
-                'id' => 'required|integer',
-            ]);
-
+            // Busca o usuário no banco de dados
             if (!$user = User::find($id)) {
                 return response()->json([
-                    "status"    => Constants::STATUS_NOT_FOUND,
-                    "message"   => Constants::ERROR_SEARCH
+                    "status"    => 404,
+                    "message"   => "Item de busca não encontrado."
                 ], 404);
             }
 
             return response()->json([
-                "status"    => Constants::STATUS_SUCCESS,
+                "status"    => 200,
                 "items"     => $user
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([
-                "status"    => Constants::STATUS_ERROR,
-                "message"   => $th
+                "status"    => 500,
+                "message"   => $th->getMessage()
             ], 500);
         }
     }
