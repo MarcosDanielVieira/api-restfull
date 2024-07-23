@@ -70,7 +70,7 @@ class AuthController extends Controller
         } catch (\Throwable $th) {
             return response()->json([
                 'status'    => Constants::STATUS_ERROR,
-                'message'   => 'Ocorreu um erro ao tentar fazer login. Por favor, tente novamente.',
+                'message'   => $th->getMessage(),
             ], 500);
         }
     }

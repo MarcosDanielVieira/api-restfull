@@ -95,7 +95,7 @@ class UserController extends Controller
         } catch (\Throwable $th) {
             return response()->json([
                 "status"    => Constants::STATUS_ERROR,
-                "message"   => "Internal server error",
+                "message"   => $th->getMessage(),
             ], 500);
         }
     }
@@ -140,18 +140,18 @@ class UserController extends Controller
             // Busca o usuário no banco de dados
             if (!$user = User::find($id)) {
                 return response()->json([
-                    "status"    => 404,
-                    "message"   => "Item de busca não encontrado."
+                    "status"    => Constants::STATUS_NOT_FOUND,
+                    "message"   => Constants::ERROR_SEARCH
                 ], 404);
             }
 
             return response()->json([
-                "status"    => 200,
+                "status"    => Constants::STATUS_SUCCESS,
                 "items"     => $user
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([
-                "status"    => 500,
+                "status"    => Constants::STATUS_ERROR,
                 "message"   => $th->getMessage()
             ], 500);
         }
